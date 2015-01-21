@@ -2,7 +2,7 @@
 
 Go to your Cloud9 dashboard and do "Create New Workspace".
 Choose "Clone From URL".
-Enter as the URL: git@github.com:yaleinteractive/networks-demo.git
+Enter as the URL: `git@github.com:yaleinteractive/networks-demo.git`
 
 A project called "networks-demo" will be created in your workspace. Edit it.
 
