@@ -47,7 +47,7 @@ var server = http.createServer(function(request, response) {
         }
         response.write("<br>");
     
-        // Send *'s for minutes
+        // Send *'s for seconds
         var so_far = 1;
         while (so_far <= seconds) {
             // response.write("'");
