@@ -4,10 +4,10 @@ Go to your Cloud9 dashboard and do "Create New Workspace".
 Choose "Clone From URL".  
 Enter as the URL: `git@github.com:yaleinteractive/networks-demo.git`
 
-A project called `networks-demo` will be created in your workspace. Edit it. It will have all the files from this GitHub repo.
+A project called `networks-demo` will be created in your workspace. Edit it. It will have all the latest files from this GitHub repo.
 
-Alternatively, you can just create an empty new workspace (choose "Custom" as the workspace template).
-Create new files for `hello.js` and `clock.js` and just copy and paste the code from GitHub.
+Alternatively, you can just create an empty new workspace in Cloud9 (choose "Custom" as the workspace template), or even use an existing workspace.
+Create new files in the Cloud9 workspace, view code in GitHub, and just copy and paste code.
 
 This GitHub repo will be updated each week with the code from our class. You can clone it each time to get the latest updates into a new project in your Cloud9 dashboard.
 
