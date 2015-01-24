@@ -1,4 +1,4 @@
-## Cloning this project in Cloud9
+## Cloning the current code in Cloud9
 
 Go to your Cloud9 dashboard and do "Create New Workspace".  
 Choose "Clone From URL".  
@@ -11,19 +11,50 @@ Create new files for `hello.js` and `clock.js` and just copy and paste the code 
 
 This GitHub repo will be updated each week with the code from our class. You can clone it each time to get the latest updates into a new project in your Cloud9 dashboard.
 
+## Viewing the code for past labs
+
+In [GitHub](https://github.com/yaleinteractive/networks-demo), pull down the "Branch" or "Tag" menu.
+Go to "Tags" and click the tag for the lab you want to view. This will show you the code as of that tag.
+
 ## Running this project
 
-In Cloud9, double click `app.js` and then click "Run". Once the server starts, in the console you'll see a preview link.
-Click or copy this to access the web server.
+### 1_conditions.js
 
-Go to /clock in the preview web server to see the clock.
+In Cloud9, double click `1_conditions.js` and then click "Run". View the output in the console.
+This code displays different messages depending on the second, using `if` conditions with various
+logical operators.
 
-## Editing this project
+### 2_loop.js
 
-You will generally *not* edit `app.js`. Instead, edit `routes/index.js`.
+In Cloud9, double click `2_loop.js` and then click "Run". View the output in the console.
+This code uses a `while` loop to display a number of `*`'s, depending on the current number of seconds.
 
-Templates go in the `views` folder. Templates use the Handlebars templating language. You will likely want to edit `index.hbs`.
+### 3_server.js
+
+In Cloud9, double click `3_server.js` and then click "Run". Once you see `Server started` in the console, 
+click the preview link at the top of the console, or copy and paste it into a browser. View the results
+in the web browser, and also in the server console.
+
+You need to restart the server when you make a change to the file (and save the file!).
+
+This code displays `Ring ring!` in the server console every time it gets a web (HTTP) request, and it tells
+the web browser to display `Hello??`. Make sure you see both.
+
+### 4_server_with_router.js
+
+In Cloud9, double click `4_server_with_router.js` and then click "Run". Once you see `Server started` in the console, 
+click the preview link at the top of the console, or copy and paste it into a browser. View the results
+in the web browser, and also in the server console.
+
+You need to restart the server when you make a change to the file (and save the file!).
+
+Then in the browser visit `/clock`, `/color`, any number like `/12`, `/breathe`, and any other URL.
+
+This code displays `Ring ring!` in the server console every time it gets a web (HTTP) request, and it tells
+the web browser to display different things depending on what URL is requested.
 
 ## Next steps
 
-Modify `routes/index.js` (and use view templates if desired) to make your own HTML output based on the time.
+Go through these files in order and make sure you understand each line! Starting with the simpler
+programs, edit them to try different small variations. Don't be afraid to break them, but when you do,
+be sure you can fix them. Go back to GitHub to look at the original code if necessary.
