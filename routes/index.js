@@ -5,7 +5,7 @@ module.exports = router;
 
 
 
-// ==== HOME PAGE WITH TEMPLATE ====
+// ===== HOME PAGE WITH TEMPLATE =====
 
 router.get('/', function(request, response) {
   response.render('index', { title: 'Express' });

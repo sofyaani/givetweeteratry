@@ -26,4 +26,10 @@ Templates go in the `views` folder. Templates use the Handlebars templating lang
 
 ## Next steps
 
-Modify `routes/index.js` (and use view templates if desired) to make your own HTML output based on the time.
+Modify `routes/index.js` to make your own HTML output based on the time.
+
+Put HTML templates in the `views` folder. These can include embedded variables passed from your router.
+(Technically the templates use the Moustache templating syntax for the embedded variables.)
+
+Put static files such as images in the `public` folder. These will be served without any processing.
+
