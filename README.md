@@ -20,17 +20,25 @@ Go to /clock in the preview web server to see the clock.
 
 ## Editing this project
 
-You will generally *not* edit `app.js`. Instead, edit `routes/index.js`.
+You will generally *not* edit `app.js`. That file just contains some setup code and configuration options. Instead, edit `routes/index.js`.
 
-Templates go in the `views` folder. Templates use the Handlebars templating language. You will likely want to edit `index.hbs`.
+Templates go in the `views` folder. Templates use the Handlebars templating language. You will likely want to edit `home.hbs`.
+
+Static files such as images and stylesheets go in the `public` folder.
 
 ## Next steps
 
-Modify `routes/index.js` to make your own HTML output based on the time.
+Modify `routes/index.js` to make two pages:
+
+* A page that changes depending on how many people have viewed it.
+* A page that changes depending on what time it is.
+
+You may wish to stop thinking about your design as being literally a clock or about time; 
+and begin to think time as being a _design factor_, not the content itself. So what do you
+want the content to be? Think about this in relation to your other work.
 
 Modify or add HTML templates in the `views` folder, such as `home.hbs`.
 These can include embedded variables passed from your router.
-(Technically the templates use the Moustache templating syntax for the embedded variables.)
+(Technically the templates use the [Handlebars](http://handlebarsjs.com/) templating syntax for the embedded variables.)
 
 Put static files such as images in the `public` folder. These will be served without any processing.
-
