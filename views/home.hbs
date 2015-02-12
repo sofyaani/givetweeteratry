@@ -1,10 +1,18 @@
-<div style="background: {{color}};">
-
-    <h1>{{counter}}</h1>
+<div class="cats">
     
-    <strong>{{hour}}</strong>:{{minute}}
+    {{#each people}}
+        <div class="person">
+            {{name}} ... {{age}}
+        </div>
+    {{else}}
+        No people :(
+    {{/each}}
     
 </div>
+
+<p>
+    <a href="/new">Add a person</a>
+</p>
 
 <p>
     <a href="/about">About this site</a>
