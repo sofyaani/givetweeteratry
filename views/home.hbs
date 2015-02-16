@@ -7,8 +7,14 @@
 <div class="shapes">
     
     {{#each shapes}}
-        <div class="shape" style="top:{{top}}%; left:{{left}}%; width:{{width}}%; height:{{height}}%; {{#if color}}background:{{color}};{{/if}}">
-        </div>
+        <!--
+        MongoDB automatically generates a unique id for every record; it's a special _id property of the record.
+        So we can use that to make a link to a page that is just about that specific record.
+        -->
+        <a href="/show?id={{_id}}">
+            <div class="shape" style="top:{{top}}%; left:{{left}}%; width:{{width}}%; height:{{height}}%; {{#if color}}background:{{color}};{{/if}}">
+            </div>
+        </a>
     {{else}}
         Blank canvas
     {{/each}}

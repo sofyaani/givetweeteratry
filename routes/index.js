@@ -37,6 +37,7 @@ var Shape = mongoose.model('Shape', {
 
 // HOME PAGE
 // /
+// Shows _all_ the shapes
 
 router.get('/', function(request, response, toss) {
   
@@ -46,7 +47,7 @@ router.get('/', function(request, response, toss) {
   Shape.find(function(err, shapes) {
     // This code will run once the database find is complete.
     // shapes will contain a list (array) of all the shapes that were found.
-    // err will contain aerrors if any.
+    // err will contain errors if any.
 
     // If there's an error, tell Express to do its default behavior, which is show the error page.
     if (err) return toss(err);
@@ -66,6 +67,38 @@ router.get('/', function(request, response, toss) {
     // Render the "home" template (located in the "views" folder).
     response.render('home');
 
+  });
+  
+});
+
+
+
+
+// SHOW PAGE
+// /show?id=54e2058e85b156d10b064ca0
+// Shows a _single_ shape
+
+router.get('/show', function(request, response, toss) {
+  
+  // When the server receives a request for "/show", this code runs
+  
+  // Get the id from the URL
+  // MongoDB automatically generates a unique id for every record; it's a special
+  // _id property of the record.
+  var id = request.query.id;
+  
+  // Find a Shape with this id
+  Shape.findOne({_id: id}, function(err, shape) {
+    // This code will run once the database find is complete.
+    // shape will contain the found shape.
+    // err will contain errors if any (for example, no such record).
+
+    if (err) return toss(err);
+    
+    response.locals.shape = shape;
+    response.locals.layout = 'layout';
+    response.render('show');
+    
   });
   
 });
@@ -132,10 +165,13 @@ router.get('/create', function(request, response, toss) {
 });
 
 
+
 // ABOUT PAGE
 // /about
 
 router.get('/about', function(request, response) {
+
+  // When the server receives a request for "/about", this code runs
 
   response.locals.layout = 'layout';
   response.render('about');
