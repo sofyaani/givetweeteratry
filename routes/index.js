@@ -53,9 +53,15 @@ router.get('/', function(request, response, toss) {
     
     // The list of shapes will be passed to the template.
     // Any additional variables can be passed in a similar way (response.locals.foo = bar;)
-    // layout tells template to wrap itself in the "layout" template (located in the "views" folder).
     response.locals.shapes = shapes;
+    
+    // layout tells template to wrap itself in the "layout" template (located in the "views" folder).
     response.locals.layout = 'layout';
+
+    // see public/stylesheets/style.css for the stylesheet that affects all pages that use
+    // this layout.
+    // Also note that any static assets (images, stylesheets, external client-side .js)
+    // can be stored in the public folder. You don't include "public" in the URL to access them though.
 
     // Render the "home" template (located in the "views" folder).
     response.render('home');

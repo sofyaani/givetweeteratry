@@ -16,4 +16,5 @@ a {
 
 .shape {
   position: absolute;
+  background: #000000; /* This is the default background if the user doesn't specify one */
 }

@@ -1,18 +1,16 @@
+<p>
+    <a href="/new">Add a shape</a>
+    &nbsp;&nbsp;
+    <a href="/about">About this site</a>
+</p>
+
 <div class="shapes">
     
     {{#each shapes}}
-        <div class="shape" style="top:{{top}}%; left:{{left}}%; width:{{width}}%; height:{{height}}%; background:{{color}};">
+        <div class="shape" style="top:{{top}}%; left:{{left}}%; width:{{width}}%; height:{{height}}%; {{#if color}}background:{{color}};{{/if}}">
         </div>
     {{else}}
         Blank canvas
     {{/each}}
     
 </div>
-
-<p>
-    <a href="/new">Add a shape</a>
-</p>
-
-<p>
-    <a href="/about">About this site</a>
-</p>
