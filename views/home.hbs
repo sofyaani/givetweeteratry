@@ -1,17 +1,16 @@
-<div class="cats">
+<div class="shapes">
     
-    {{#each people}}
-        <div class="person">
-            {{name}} ... {{age}}
+    {{#each shapes}}
+        <div class="shape" style="top:{{top}}%; left:{{left}}%; width:{{width}}%; height:{{height}}%; background:{{color}};">
         </div>
     {{else}}
-        No people :(
+        Blank canvas
     {{/each}}
     
 </div>
 
 <p>
-    <a href="/new">Add a person</a>
+    <a href="/new">Add a shape</a>
 </p>
 
 <p>

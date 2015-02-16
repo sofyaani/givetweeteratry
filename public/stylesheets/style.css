@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #EEEEEE;
 }
 
 a {
   color: #00B7FF;
+}
+
+.shapes {
+  background: white;
+  width: 600pt;
+  height: 600pt;
+  position: relative;
+}
+
+.shape {
+  position: absolute;
 }
