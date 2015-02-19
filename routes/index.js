@@ -1,6 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var unirest = require('unirest');
+var moment = require('moment');
+
 module.exports = router;
+
+
+
+
+// =========================================================
+// =
+// =   SET UP MONGODB AND MONGOOSE
+// =
 
 // MongoDB is a JavaScript-oriented database.
 // http://docs.mongodb.org/manual/core/crud-introduction/
@@ -20,6 +31,13 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://' + process.env.IP + '/networks');
 
 
+
+
+// =========================================================
+// =
+// =   DEFINE OUR DATA MODELS
+// =
+
 // Define the data structure of a Shape model
 // It has width, height, top, and left attributes, which are required to be numbers from 0–100
 // And it has a color attribute, which is optionaland is a string (text)
@@ -33,6 +51,82 @@ var Shape = mongoose.model('Shape', {
   color: {type: String}
 });
 
+
+
+
+// =========================================================
+// =
+// =   EXTERNAL DATA
+// =
+
+// We'll use Mashape for both weather and shuttle bus API's:
+// Log in to https://www.mashape.com/ using your GitHub credentials.
+// Replace the below with your own key.
+var mashape_key = 'H0xOUHdiDQmshnxW3o2xiR3y82tIp1xaHMFjsn443U2QrT84xA';
+
+var green_hall_lat = 41.308317;
+var green_hall_lon = -72.932979;
+
+var yale_shuttle_agency_id = 128;
+var chapel_york_stop_id = 4096834;
+
+var weather;
+var bus;
+
+// Call get_weather every 5 minutes, and get_bus every 60 seconds.
+// We do this asynchronously, independent of any incoming web requests.
+// This way the data is already available when we do get an incoming web request.
+var weather_interval = setInterval(get_weather, 5 * 60 * 1000);
+var bus_interval = setInterval(get_bus, 60 * 1000);
+
+// Also call them both now, at server startup:
+get_weather();
+get_bus();
+
+
+// When this function is called, get the weather at Green Hall and store it in the weather variable.
+// We use https://www.mashape.com/community/open-weather-map
+function get_weather() {
+  
+    console.log("Getting weather");
+    
+    unirest.get("https://community-open-weather-map.p.mashape.com/weather")
+      .query({lat: green_hall_lat, lon: green_hall_lon, units: 'imperial'})
+      .header("X-Mashape-Key", mashape_key)
+      .end(function (result) {
+        
+        weather = result.body;
+        console.log("Weather", result.status, weather);
+        
+      });
+}
+
+
+// When this function is called, get the bus arrivals at Green Hall and store it in the bus variable.
+// We use https://www.mashape.com/transloc/openapi-1-2
+// See also https://transloc.zendesk.com/hc/en-us/articles/201996268-API-Documentation
+function get_bus() {
+  
+    console.log("Getting bus");
+    
+    unirest.get("https://transloc-api-1-2.p.mashape.com/arrival-estimates.json")
+      .query({agencies: yale_shuttle_agency_id, stops: chapel_york_stop_id})
+      .header("X-Mashape-Key", mashape_key)
+      .end(function (result) {
+        
+        bus = result.body.data[0].arrivals;
+        console.log("Bus", result.status, bus);
+        
+      });
+}
+
+
+
+
+// =========================================================
+// =
+// =   WEB ROUTES
+// =
 
 
 // HOME PAGE
@@ -56,13 +150,13 @@ router.get('/', function(request, response, toss) {
     // Any additional variables can be passed in a similar way (response.locals.foo = bar;)
     response.locals.shapes = shapes;
     
+    // Also pass the temperature, wind direction, and next bus arrival.
+    response.locals.temperature = weather.main.temp;
+    response.locals.wind
+    response.locals.arrival = new Date(bus[0].arrival_at);
+    
     // layout tells template to wrap itself in the "layout" template (located in the "views" folder).
     response.locals.layout = 'layout';
-
-    // see public/stylesheets/style.css for the stylesheet that affects all pages that use
-    // this layout.
-    // Also note that any static assets (images, stylesheets, external client-side .js)
-    // can be stored in the public folder. You don't include "public" in the URL to access them though.
 
     // Render the "home" template (located in the "views" folder).
     response.render('home');
@@ -88,7 +182,7 @@ router.get('/show', function(request, response, toss) {
   var id = request.query.id;
   
   // Find a Shape with this id
-  Shape.findOne({_id: id}, function(err, shape) {
+  Shape.findOne({id: id}, function(err, shape) {
     // This code will run once the database find is complete.
     // shape will contain the found shape.
     // err will contain errors if any (for example, no such record).
