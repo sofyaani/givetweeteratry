@@ -1,20 +1,3 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #EEEEEE;
-}
-
-a {
-  color: #00B7FF;
-}
-
-.shapes {
-  background: white;
-  width: 600pt;
-  height: 600pt;
-  position: relative;
-}
-
-.shape {
-  position: absolute;
-  background: #000000; /* This is the default background if the shape record doesn't specify one */
+  font: 14px Arial, sans-serif;
 }

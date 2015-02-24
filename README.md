@@ -1,3 +1,12 @@
+This project is a content management system that manages "phrases":
+documents that each have a preposition and a noun, such as "on" (preposition) and "the chair" (noun).
+
+In addition, it gets the weather near Green Hall every 5 minutes, and Yale Shuttle bus arrivals
+at Chapel and York every 1 minute. When displaying the phrases, it presents them rotated according
+to the wind direction, and indented according to the wait for the next bus.
+
+!screenshot.png!
+
 ## Cloning this project in Cloud9
 
 Go to your Cloud9 dashboard and do "Create New Workspace".  
@@ -31,7 +40,7 @@ in the console you'll see a preview link. Click or copy this to access the web s
 
 You will generally *not* edit `app.js`. That file just contains some setup code and configuration options.
 
-Instead, edit `routes/index.js`.
+Instead, edit `routes/index.js` and `feeds.js`.
 
 Templates go in the `views` folder. Templates use the Handlebars templating language.
 
@@ -44,6 +53,15 @@ These needn't be visual. They could contain text or numeric data instead of data
 
 Add code or additional routes within `index.js`, to create your content management system. You will
 probaby need one or more display pages for each model, and pages that let users add data for each model.
+You may want to define multiple different models (data types), not just one.
+
+The code to get the weather and bus data has been separated into `feeds.js`. The feeds are then available
+in `index.js` within the `feeds` object.
+
+You can add your own feeds in `feeds.js`, such as other API's from Mashape.
+
+Optimally, sign up for a free or paid account on [Mashape](https://www.mashape.com/) using your GitHub
+credentials. Then, use your own API key at the top of `feeds.js`, instead of mine.
 
 Modify or add HTML templates in the `views` folder, such as `home.hbs`.
 
