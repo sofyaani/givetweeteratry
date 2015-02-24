@@ -18,6 +18,26 @@ A project called `networks-demo` will be created in your workspace. Edit it. It 
 
 This GitHub repo will be updated each week with the code from our class. You can clone it each time to get the latest updates into a new project in your Cloud9 dashboard.
 
+When you clone, you're actually getting *all* versions of the repository, but the latest version will be active.
+
+### git commands to go back in time
+
+In Cloud9, find a Terminal ("bash") tab to type these commands.
+
+Reset your workspace to the last time you cloned from GitHub:
+
+    git reset --hard
+
+Note, you'll lose your changes if you reset! It's probably better to just make an new workspace instead, following the instructions above under "Cloning".
+
+List all tags (there is a tag for each lab):
+
+    git tag -l
+
+Go back in time to a particular tag (you'll need to first do a reset as above if you've made any changes of your own):
+
+    git checkout tags/feb_5_2015
+
 ## Running this project
 
 1. In Cloud9, the first time you start the workspace, find a Terminal ("bash") tab and type:
