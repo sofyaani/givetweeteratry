@@ -5,7 +5,7 @@ In addition, it gets the weather near Green Hall every 5 minutes, and Yale Shutt
 at Chapel and York every 1 minute. When displaying the phrases, it presents them rotated according
 to the wind direction, and indented according to the wait for the next bus.
 
-![screenshot](screenshot.png)!
+![screenshot](screenshot.png)
 
 ## Cloning this project in Cloud9
 
