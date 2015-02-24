@@ -3,7 +3,8 @@ documents that each have a preposition and a noun, such as "on" (preposition) an
 
 In addition, it gets the weather near Green Hall every 5 minutes, and Yale Shuttle bus arrivals
 at Chapel and York every 1 minute. When displaying the phrases, it presents them rotated according
-to the wind direction, and indented according to the wait for the next bus.
+to the wind direction, with font size according to the temperature, and indented according to the 
+wait for the next bus.
 
 ![screenshot](screenshot.png)
 
