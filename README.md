@@ -26,15 +26,15 @@ This GitHub repo will be updated each week with the code from our class. You can
 This will start the MongoDB database server. You only need to do this once per workspace.
 It should remain running forever after that (even if you log out and log in from your browser etc.).
 
-> If you can't find a Terminal ("bash") tab, try pressing Ctrl-Esc to show the console tabs.
-> If necessary, you can create a new Terminal tab there by pressing "+" in the console tabs.
-
+    > If you can't find a Terminal ("bash") tab, try pressing Ctrl-Esc to show the console tabs.
+    > If necessary, you can create a new Terminal tab there by pressing "+" in the console tabs.
+    
 2. In Cloud9, double click `app.js` and then click "Run". Once the server starts, 
 in the console you'll see a preview link. Click or copy this to access the web server.
 
-> If you see an error about `Server.connect` in the `app.js` console when you try to run `app.js`, you probably
-> need to run `./mongod` as described above.
-
+    > If you see an error about `Server.connect` in the `app.js` console when you try to run `app.js`, you probably
+    > need to run `./mongod` as described above.
+    
 3. Go to / in the preview web server to see the empty CMS.
 
 ## Editing this project
