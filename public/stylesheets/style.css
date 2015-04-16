@@ -1,3 +1,52 @@
 body {
-  font: 14px Arial, sans-serif;
+  font: 9px Courier, Andale Mono, monospace;
 }
+.message {
+    position: relative;
+    display: inline-block;
+    width: 450px;
+    height: 175px;
+    margin-bottom: 50px;
+}
+.digit {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 175px;
+}
+.digit div {
+    position: absolute;
+    white-space: nowrap;
+    -webkit-transform-origin: 0 0;
+}
+.h.top {
+    top: 0%;
+    left: 0%;
+    -webkit-transform: rotate(0deg);
+}
+.h.middle {
+    top: 50%;
+    left: 100%;
+    -webkit-transform: rotate(180deg);
+}
+.h.bottom {
+    top: 100%;
+    left: 0%;
+}
+.v.left {
+    -webkit-transform: rotate(-90deg);
+    top: 100%;
+    left: 0%;
+}
+.v.left.top {
+    top: 50%;
+}
+.v.right {
+    -webkit-transform: rotate(90deg);
+    top: 0%;
+    left: 100%;
+}
+.v.right.bottom {
+    top: 50%;
+}
+

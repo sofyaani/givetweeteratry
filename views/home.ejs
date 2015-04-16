@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      
+    <% for (var m = 0; m < messages.length; m++) { %>
+        <% var message = messages[m] %>
+        
+        <div class="message number-<%= message.number %>">
+            
+            <% var digits = message.number.toString().split(''); %>
+            <% var offset = 0; %>
+            <% for (var d = 0; d < digits.length; d++) { %>
+                <% var digit = digits[d]; %>
+                
+                <% var h = 25, v = 30; %>
+            
+                <div class="digit digit-position-<%= d %> digit-<%= digit %>">
+                
+                    <% if (digit == 0) { %>                    
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left"><%= message.text.substring(offset, offset += v) %></div>
+                    <% } %>
+                        
+                    <% if (digit == 1) { %>                    
+                        <div class="v left"><%= message.text.substring(offset, offset += v) %></div>
+                    <% } %>
+
+                    <% if (digit == 2) { %>                    
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right top"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left bottom"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                    <% } %>
+                        
+                    <% if (digit == 3) { %>                    
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                    <% } %>
+
+                    <% if (digit == 4) { %>                    
+                        <div class="v left top"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                        
+                    <% } %>
+                        
+                    <% if (digit == 5) { %>                    
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right bottom"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left top"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        
+                        
+                    <% } %>
+
+                    <% if (digit == 6) { %>                    
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right bottom"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        
+                    <% } %>
+                        
+                    <% if (digit == 7) { %>                    
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                    <% } %>
+ 
+                     <% if (digit == 8) { %>                    
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                    <% } %>
+                        
+                    <% if (digit == 9) { %>                    
+                        <div class="h middle"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v left top"><%= message.text.substring(offset, offset += v/2) %></div>
+                        <div class="h top"><%= message.text.substring(offset, offset += h) %></div>
+                        <div class="v right"><%= message.text.substring(offset, offset += v) %></div>
+                        <div class="h bottom"><%= message.text.substring(offset, offset += h) %></div>
+                    <% } %>
+                    
+                </div>
+                
+            <% } %>
+            
+            
+        </div>
+            
+    <% } %>
+    
+    <p>
+        <a href="/new">Add</a>
+    </p>
+
+  </body>
+</html>
